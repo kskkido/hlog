@@ -1,0 +1,61 @@
+/*https://www.awwwards.com/inspiration/bigilla-a-display-serif-typeface-with-ligatures-and-alternates*/
+@font-face {
+  font-family: Bigilla;
+  src: url(../../assets/fonts/Bigilla.otf);
+}
+
+@font-face {
+  font-family: Bigilla-Bold;
+  src: url(../../assets/fonts/Bigilla-Bold.otf);
+}
+
+/*https://www.fontshare.com/fonts/supreme*/
+@font-face {
+  font-family: Supreme-Regular;
+  src: url(../../assets/fonts/Supreme-Regular.otf);
+}
+
+@font-face {
+  font-family: Supreme-Bold;
+  src: url(../../assets/fonts/Supreme-Bold.otf);
+}
+
+@font-face {
+  font-family: Supreme-Medium;
+  src: url(../../assets/fonts/Supreme-Medium.otf);
+}
+
+@font-face {
+  font-family: Anton-Regular;
+  src: url(../../assets/fonts/Anton-Regular.ttf);
+}
+
+@font-face {
+  font-family: FjallaOne-Regular;
+  src: url(../../assets/fonts/FjallaOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: Futura-Light;
+  src: url(../../assets/fonts/Futura-Light.ttf);
+}
+
+@font-face {
+  font-family: Futura-Book;
+  src: url(../../assets/fonts/Futura-Book.ttf);
+}
+
+@font-face {
+  font-family: Satoshi-Regular;
+  src: url(../../assets/fonts/Satoshi-Regular.otf);
+}
+
+@font-face {
+  font-family: Satoshi-Black;
+  src: url(../../assets/fonts/Satoshi-Black.otf);
+}
+
+@font-face {
+  font-family: Satoshi-Medium;
+  src: url(../../assets/fonts/Satoshi-Medium.otf);
+}

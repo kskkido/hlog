@@ -1,0 +1,31 @@
+<div
+  class="grid grid-cols-9 py-12 border-b items-center"
+  data-featured_post
+  data-featured_post_id="$identifier$"
+  data-image="foo"
+>
+  <div class="col-span-5">
+    <a
+      class="mb-2 text-2xl text-animated-enter text-animated-hover"
+      href="$url$"
+      data-type="link"
+      data-observer="scroll"
+    >
+      <span class="text">$title$</span>
+    </a>
+  </div>
+  <div class="text-animated-enter col-span-2" data-observer="scroll">
+    $for(tags)$
+    <a
+      class="mr-1 text-animated-hover text text-sm"
+      href="$url$"
+      data-type="link"
+    >
+      <span class="text"> $name$ </span>
+    </a>
+    $endfor$
+  </div>
+  <div class="text-animated-enter text-xs col-span-2" data-observer="scroll">
+    <span class="text">$date$</span>
+  </div>
+</div>

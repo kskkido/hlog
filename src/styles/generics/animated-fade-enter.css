@@ -1,0 +1,16 @@
+.animated-fade-enter {
+  overflow: hidden;
+
+  & .target {
+    opacity: 0;
+    transform: translateY(48px);
+    transition: opacity 0.6s ease-in-out,
+      transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+    transition-delay: calc(0.1s * var(--index, 0));
+  }
+
+  &.in .target {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

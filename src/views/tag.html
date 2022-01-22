@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>$name$</title>
+    <link rel="stylesheet" href="/styles/index.css" />
+    <script type="module" src="/scripts/scroll.js"></script>
+    <script type="module" src="/scripts/splitWords.js"></script>
+    <script type="module" src="/scripts/loadObserver.js"></script>
+    <script type="module" src="/scripts/quickLink.js"></script>
+    <script type="module" src="/scripts/posts.js"></script>
+    <script type="module" src="/scripts/navigation.js"></script>
+    <script
+      src="https://kit.fontawesome.com/56e0eb8f60.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/8.0.0-alpha.2/rxjs.umd.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="boundary">
+    $partial("components/header.html")$
+    <div class="hidden">
+      $for(posts)$ $partial("components/post-metadata.html")$ $endfor$
+      $for(tags)$ $partial("components/tag-metadata.html")$ $endfor$
+    </div>
+    <main id="container" class="flex flex-col px-14 mb-32 min-h-screen">
+      <section class="mb-16">
+        <div class="mb-12 flex justify-between">
+          <div class="quick-link" data-quick_link>
+            <h1
+              class="word-animated-enter text-5xl"
+              data-word="\$name$\"
+              data-observer="load"
+            ></h1>
+          </div>
+        </div>
+        <div class="flex justify-between">
+          $partial("components/view-widgets.html")$
+          $partial("components/sort-widgets.html")$
+        </div>
+      </section>
+      <section
+        class="data-items"
+        data-orientation="list"
+        data-widget_id="orientation"
+        data-slot="list"
+      ></section>
+    </main>
+    $partial("components/footer.html")$
+  </body>
+</html>

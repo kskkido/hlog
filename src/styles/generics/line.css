@@ -1,0 +1,5 @@
+.line {
+  display: inline-block;
+  border-color: currentColor;
+  border-bottom: 1px solid;
+}

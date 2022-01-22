@@ -1,0 +1,8 @@
+.featured-post-preview {
+  &.active {
+    z-index: 1;
+  }
+  &.inactive {
+    z-index: 0;
+  }
+}

@@ -1,0 +1,18 @@
+.data-items {
+  &[data-orientation='grid'] {
+    & > .grid-view {
+      opacity: 0;
+    }
+    & > .list-view {
+      display: none;
+    }
+  }
+  &[data-orientation='list'] {
+    & > .list-view {
+      opacity: 0;
+    }
+    & > .grid-view {
+      display: none;
+    }
+  }
+}

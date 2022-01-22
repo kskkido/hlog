@@ -1,0 +1,41 @@
+<div
+  class="card-item flex flex-col justify-center items-center border p-8"
+  data-identifier="$identifier$"
+>
+  <div class="w-3/4 h-px my-9"></div>
+  <div class="w-full h-24 flex justify-center items-center">
+    <a
+      class="text-2xl text-animated-enter text-animated-hover"
+      href="$url$"
+      data-type="link"
+      data-observer="load"
+    >
+      <span class="text">$title$</span>
+    </a>
+  </div>
+  <div class="flex align-center mb-20">
+    $for(tags)$
+    <div
+      class="text-animated-enter mr-2"
+      style="--index: 2"
+      data-observer="load"
+    >
+      <a
+        class="mr-1 text-animated-hover text text-sm"
+        href="$url$"
+        data-type="link"
+      >
+        <span class="text"> $name$ </span>
+      </a>
+    </div>
+    $endfor$
+  </div>
+  <div class="w-full flex justify-between text-xs text-slate-500">
+    <div class="text-animated-enter" style="--index: 4" data-observer="load">
+      <span class="text">$date$</span>
+    </div>
+    <div class="text-animated-enter" style="--index: 6" data-observer="load">
+      <span class="text">$read-time-minutes$ minutes read</span>
+    </div>
+  </div>
+</div>

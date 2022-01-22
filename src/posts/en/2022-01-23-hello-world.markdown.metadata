@@ -1,0 +1,8 @@
+identifier: hello_world
+title: Hello World
+author: Keisuke Kido
+date: 2022-01-23
+tags: haskell, blog
+locale: en
+image: foo
+description: The birth of cool

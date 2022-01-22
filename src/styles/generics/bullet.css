@@ -1,0 +1,7 @@
+.bullet {
+  display: inline-block;
+  background-color: currentColor;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}

@@ -26,13 +26,79 @@ source-repository head
 executable blog
   main-is: Main.hs
   other-modules:
+      Configs.App.From
+      Configs.App.Main
+      Configs.App.To
+      Configs.App.Types
+      Configs.PostCss.Main
+      Configs.PostCss.Types
+      Lib.Field.Main
+      Lib.Pandoc.Main
+      Lib.Parser.Main
+      Lib.Parser.String.Main
+      Lib.PostCss.Main
+      Lib.String.Main
+      Models.Css.Main
+      Models.Css.To
+      Models.Header.From
+      Models.Header.Lib
+      Models.Header.Main
+      Models.Header.To
+      Models.Header.Types
+      Models.HeaderContext.From
+      Models.HeaderContext.Main
+      Models.HomeContext.From
+      Models.HomeContext.Main
+      Models.Locale.From
+      Models.Locale.Main
+      Models.Locale.Types
+      Models.PostContext.From
+      Models.PostContext.Main
+      Models.PostMetadata.Constants
+      Models.PostMetadata.From
+      Models.PostMetadata.Main
+      Models.PostMetadata.Types
+      Models.PostsContext.From
+      Models.PostsContext.Main
+      Models.PostTagContext.From
+      Models.PostTagContext.Main
+      Models.TableOfContents.From
+      Models.TableOfContents.Main
+      Models.TableOfContents.Types
+      Models.TableOfContentsContext.From
+      Models.TableOfContentsContext.Main
+      Models.Tag.From
+      Models.Tag.Main
+      Models.Tag.Types
+      Models.TagContext.From
+      Models.TagContext.Main
+      Models.TagContext.Types
+      Models.TagMetadata.From
+      Models.TagMetadata.Main
+      Models.TagMetadata.Types
+      Models.Tags.Main
+      Models.Tags.To
+      Models.TagsContext.From
+      Models.TagsContext.Main
+      Scripts.PostCss.Main
+      Services.Markdown.Main
       Paths_blog
   hs-source-dirs:
-      src
+      app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , containers
     , hakyll
+    , lens
+    , pandoc
+    , pandoc-types
+    , process
+    , split
+    , text
+    , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 test-suite blog-test

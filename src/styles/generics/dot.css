@@ -1,0 +1,11 @@
+.dot {
+  display: inline-block;
+  background-color: #ccc;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  margin: 0 0.75rem;
+  -webkit-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  transform: translateY(-2px);
+}

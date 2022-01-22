@@ -1,0 +1,36 @@
+<div class="grid grid-cols-8 gap-8 h-96">
+  <div
+    class="col-span-3 w-full h-full animated-left-enter"
+    data-observer="scroll"
+  >
+    <div class="bg-slate-200 w-full h-full target"></div>
+  </div>
+  <div class="col-span-5 flex flex-col px-4 py-8 border-y justify-between">
+    <div>
+      <div class="text-animated-enter mb-6" data-observer="scroll">
+        <span class="text">$date$</span>
+        <span class="dot"></span>
+        <span class="text">$read-time-minutes$ minutes read</span>
+      </div>
+      <div class="mb-12">
+        <a class="mb-2 text-3xl text-animated-hover" href="$url$">
+          <span
+            class="word-animated-enter text"
+            data-word="$title$"
+            data-observer="scroll"
+          ></span>
+        </a>
+        <div class="animated-fade-enter" data-observer="scroll">
+          <p class="target" data-observer="scroll">$description$</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-animated-enter" data-observer="scroll">
+      $for(tags)$
+      <a class="mr-1 text-animated-hover text" href="$url$">
+        <span class="text"> $name$ </span>
+      </a>
+      $endfor$
+    </div>
+  </div>
+</div>

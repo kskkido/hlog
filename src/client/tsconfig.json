@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext", "dom"],
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "outDir": "./public",
+    "rootDir": "./src",
+    "baseUrl": "./src"
+  },
+  "include": ["**/*.ts", "**/*.tsx"]
+}

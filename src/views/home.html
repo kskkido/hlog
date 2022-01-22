@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Home</title>
+    <link rel="stylesheet" href="/styles/index.css" />
+    <script type="module" src="/scripts/cursor.js"></script>
+    <script type="module" src="/scripts/scroll.js"></script>
+    <script type="module" src="/scripts/splitWords.js"></script>
+    <script type="module" src="/scripts/loadObserver.js"></script>
+    <script type="module" src="/scripts/scrollObserver.js"></script>
+    <script type="module" src="/scripts/navigation.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/8.0.0-alpha.2/rxjs.umd.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="boundary">
+    $partial("components/header.html")$
+    <main id="container" class="flex flex-col px-14 mb-8">
+      <section class="mb-64">
+        <div class="flex justify-between items-center">
+          <h1
+            class="word-animated-enter text-5xl mb-12"
+            data-word="Latest"
+            data-observer="load"
+          ></h1>
+          <a
+            class="text-animated-enter text-animated-hover"
+            href="/posts.html"
+            data-type="link"
+            data-observer="load"
+          >
+            <span class="text text-md">View all</span>
+          </a>
+        </div>
+        <div class="flex flex-col">
+          <div class="mb-32">$partial("components/posts-latest.html")$</div>
+        </div>
+      </section>
+    </main>
+    $partial("components/footer.html")$
+  </body>
+</html>

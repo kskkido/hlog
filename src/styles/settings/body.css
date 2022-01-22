@@ -1,0 +1,9 @@
+body {
+  font-family: 'Satoshi-Medium', sans-serif;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+
+  & a {
+    cursor: pointer;
+  }
+}
