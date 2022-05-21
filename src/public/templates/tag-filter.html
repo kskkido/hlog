@@ -1,0 +1,87 @@
+<div
+  class="flex flex-col md:flex-row md:justify-between"
+  data-type="tag-filter"
+>
+  <div class="flex items-center mb-3 md:mb-0" data-type="view-widget">
+    <div class="clip target" style="--index: 2">
+      <span
+        class="widget cursor-pointer text-xs block"
+        data-value="list"
+        data-group="view"
+        data-type="content"
+        >list view</span
+      >
+    </div>
+    <div class="clip target" style="--index: 2">
+      <span class="opacity-25 mx-4 text-xs block" data-type="content">|</span>
+    </div>
+    <div class="clip target" style="--index: 2">
+      <span
+        class="widget cursor-pointer text-xs block"
+        data-value="grid"
+        data-group="view"
+        data-type="content"
+        >grid view</span
+      >
+    </div>
+  </div>
+  <div class="flex flex-col sm:flex-row sm:items-center">
+    <div class="flex items-center mb-3 sm:mb-0" data-type="sort-widget">
+      <div class="hidden sm:block clip" style="--index: 2">
+        <span class="text-xs block opacity-25" data-type="content"
+          >sort by</span
+        >
+      </div>
+      <div class="hidden sm:block clip mx-4" style="--index: 2">
+        <div class="line w-10 opacity-25 block" data-type="content"></div>
+      </div>
+      <div class="clip" style="--index: 2">
+        <span
+          class="widget inactive cursor-pointer text-xs block"
+          data-value="name"
+          data-group="sort"
+          data-type="content"
+          >name</span
+        >
+      </div>
+      <div class="clip" style="--index: 2">
+        <span class="opacity-25 mx-4 text-xs block" data-type="content">|</span>
+      </div>
+      <div class="clip" style="--index: 2">
+        <span
+          class="widget inactive cursor-pointer text-xs block"
+          data-value="size"
+          data-group="sort"
+          data-type="content"
+          >size</span
+        >
+      </div>
+    </div>
+    <div class="hidden sm:block clip mx-6" style="--index: 2">
+      <div class="line w-3.5 opacity-25 block" data-type="content"></div>
+    </div>
+    <div class="flex items-center" data-type="order-widget">
+      <div class="clip" style="--index: 2">
+        <span
+          class="widget active cursor-pointer text-xs block"
+          data-value="descending"
+          data-group="order"
+          data-type="content"
+          >descending</span
+        >
+      </div>
+      <div class="clip" style="--index: 2">
+        <span class="opacity-25 mx-4 text-xs block" data-type="content">|</span>
+      </div>
+      <div class="clip" style="--index: 2">
+        <span
+          class="widget inactive cursor-pointer text-xs block"
+          data-value="ascending"
+          data-group="order"
+          data-type="content"
+          >ascending</span
+        >
+      </div>
+    </div>
+  </div>
+</div>

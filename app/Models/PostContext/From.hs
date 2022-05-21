@@ -21,7 +21,7 @@ fromItem =
   Hakyll.field "description" (fmap PostMetadata.description . PostMetadata.fromItem) <>
   Hakyll.field "body"        (return . Hakyll.itemBody) <>
   Hakyll.urlField "url" <>
-  Lib.Field.readTimeField "read-time-minutes" 200
+  Lib.Field.wordCountField "word-count"
 
 fromTags :: Hakyll.Tags -> Hakyll.Context String
 fromTags tags =
@@ -34,11 +34,11 @@ fromTags tags =
 fromPosts :: [Hakyll.Item String] -> Hakyll.Tags -> Hakyll.Context String
 fromPosts posts tags =
   fromTags tags <>
-  Hakyll.listFieldWith "next" fromItem (\item -> do
+  Hakyll.listFieldWith "prev" fromItem (\item -> do
     sorted <- (zip . fmap (Hakyll.toFilePath . Hakyll.itemIdentifier) <*> tail) <$> Hakyll.recentFirst posts
     return $ maybe [] pure $ lookup (Hakyll.toFilePath $ Hakyll.itemIdentifier item) sorted
   ) <>
-  Hakyll.listFieldWith "prev" fromItem (\item -> do
+  Hakyll.listFieldWith "next" fromItem (\item -> do
     sorted <- (tail >>= zip . fmap (Hakyll.toFilePath . Hakyll.itemIdentifier)) <$> Hakyll.recentFirst posts
     return $ maybe [] pure $ lookup (Hakyll.toFilePath $ Hakyll.itemIdentifier item) sorted
   )

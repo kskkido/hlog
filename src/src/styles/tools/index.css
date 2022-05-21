@@ -1,0 +1,10 @@
+html {
+}
+
+button {
+  touch-action: manipulation;
+}
+
+a {
+  touch-action: manipulation;
+}

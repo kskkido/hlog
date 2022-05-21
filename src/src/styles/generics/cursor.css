@@ -1,0 +1,17 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+
+  & .circle {
+    @apply stroke-gray-300;
+    @apply dark:stroke-gray-300;
+
+    fill: none;
+    stroke-width: 1;
+    stroke-linecap: round;
+  }
+}

@@ -1,5 +1,0 @@
-.table-of-contents {
-  & .inactive {
-    @apply text-gray-400;
-  }
-}

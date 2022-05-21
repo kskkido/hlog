@@ -1,0 +1,13 @@
+.menu-trigger.on {
+  display: block;
+
+  & > .disk {
+    @apply bg-gray-500;
+
+    display: inline-block;
+    margin: auto;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+  }
+}

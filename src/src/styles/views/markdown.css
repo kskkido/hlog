@@ -1,0 +1,55 @@
+.markdown {
+  @apply pb-32;
+
+  & > h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply pt-12;
+    @apply mb-6;
+
+    position: relative;
+
+    & > .link {
+      @apply text-gray-500;
+      @apply pt-12;
+      @apply ml-1;
+      @apply text-2xl;
+
+      position: absolute;
+      top: 50%;
+      cursor: pointer;
+      opacity: 0;
+      transform: translate(-8px, -50%);
+      transition: opacity 0.2s ease 0s, transform 0.2s ease 0s;
+    }
+    &:hover > .link {
+      opacity: 1;
+      transform: translate(0, -50%);
+    }
+  }
+  & > h1 {
+    @apply text-4xl;
+  }
+  & > h2 {
+    @apply text-3xl;
+  }
+  & > h3 {
+    @apply text-2xl;
+  }
+  & > h4 {
+    @apply text-xl;
+  }
+  & > h5 {
+    @apply text-lg;
+  }
+  & > h6 {
+    @apply font-semibold;
+  }
+
+  & > p {
+    line-height: calc(1em + 1.025rem);
+  }
+}

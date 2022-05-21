@@ -1,0 +1,11 @@
+<div class="grid grid-cols-8 gap-14 min-h-max" data-featured_posts>
+  <div class="col-span-4 w-full h-full animated-left-enter" data-observer="scroll">
+    <div class="relative w-full h-full target">
+      $for(posts)$ $partial("templates/post-featured-preview.html")$ $partial("templates/post-featured-preview.html")$
+      $endfor$
+    </div>
+  </div>
+  <div class="col-span-4 flex flex-col justify-center">
+    $for(posts)$ $partial("templates/post-featured.html")$ $partial("templates/post-featured.html")$ $endfor$
+  </div>
+</div>

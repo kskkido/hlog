@@ -1,9 +1,0 @@
-export * as lib from './lib/index.js';
-export * as array from './array/index.js';
-export * as date from './date/index.js';
-export * as literal from './literal/index.js';
-export * as number from './number/index.js';
-export * as object from './object/index.js';
-export * as string from './string/index.js';
-export * as schema from './schema/index.js';
-export * as unknown from './unknown/index.js';

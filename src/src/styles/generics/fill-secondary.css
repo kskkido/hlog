@@ -1,0 +1,4 @@
+.fill-secondary {
+  @apply fill-gray-400;
+  @apply dark:fill-gray-500;
+}

@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>Posts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <script src="/scripts/posts.js"></script>
+    <script src="https://kit.fontawesome.com/56e0eb8f60.js" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/8.0.0-alpha.2/rxjs.umd.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="boundary">
+    $partial("templates/header.html")$ $partial("templates/cursor.html")$ $partial("templates/menu.html")$
+    <div class="hidden">
+      $for(posts)$ $partial("templates/post-metadata.html")$ $endfor$ $for(tags)$
+      $partial("templates/tag-metadata.html")$ $endfor$
+    </div>
+    <main id="container" class="flex flex-col px-8 sm:px-14 mb-16 sm:mb-32 min-h-screen" data-type="main">
+      <section class="mb-8 md:mb-12">
+        <div class="flex items-center text-xs sm:text-sm mb-6 text-secondary fill-secondary" data-type="breadcrumbs">
+          <div class="clip">
+            <a class="text-animated-hover" href="/" data-type="content link">
+              <span class="text"> Home </span>
+            </a>
+          </div>
+          <div class="clip">
+            <div class="mx-3" data-type="content">
+              <span> / </span>
+            </div>
+          </div>
+          <div class="clip">
+            <a class="text-animated-hover" href="/tags.html" data-type="content link">
+              <span class="text"> Tags </span>
+            </a>
+          </div>
+          <div class="clip">
+            <div class="mx-3" data-type="content">
+              <span> / </span>
+            </div>
+          </div>
+          <div class="clip">
+            <a class="text-animated-hover" href="/posts.html" data-type="content link">
+              <span class="text"> Posts </span>
+            </a>
+          </div>
+        </div>
+        <div id="title" class="mb-8 sm:mb-16 flex justify-between clip" data-type="title">
+          <div class="quick-link" data-type="content">
+            <h1 class="text-5xl block">Posts<span class="text-sm align-top"> $size$ </span></h1>
+            <i class="link fa-solid fa-link" data-type="quick_link"> </i>
+          </div>
+        </div>
+        $partial("templates/post-filter.html")$
+      </section>
+      <section class="data-items" data-slot="list" data-type="slot" data-name="posts"></section>
+    </main>
+    $partial("templates/footer.html")$
+  </body>
+</html>

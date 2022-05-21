@@ -1,0 +1,226 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@3.1.1
+  slack: circleci/slack@4.2.0
+
+references:
+  default_branch: &default_branch main
+
+executors:
+  default:
+    docker:
+      - image: kskkido/blog:latest
+    working_directory: ~/blog
+  base:
+    docker:
+      - image: cimg/base:2020.01
+    working_directory: ~/blog
+
+commands:
+  deploy:
+    parameters:
+      stage:
+        type: enum
+        enum: ['development', 'staging', 'production']
+    steps:
+      - aws-cli/install
+      - run: |
+          echo 'Setting AWS profile'
+          mkdir -p ~/.aws
+          echo '[default]' >> ~/.aws/credentials
+          echo "aws_access_key_id = $AWS_ACCESS_KEY_ID" >> ~/.aws/credentials
+          echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials
+          cat .circleci/.aws/config >> ~/.aws/config
+      - run: .circleci/deploy.sh
+  build:
+    steps:
+      - run: make build
+  lint:
+    steps:
+      - run: echo "TODO"
+  publish:
+    parameters:
+      stage:
+        type: enum
+        enum: ['development', 'staging', 'production']
+    steps:
+      # ssh key must have write permission
+      - add_ssh_keys
+      - run: .circleci/publish.sh << parameters.stage >>
+  unit_test:
+    steps:
+      - run: echo "TODO"
+  install_dependencies:
+    steps:
+      - restore_dependencies
+      - run: stack build --dependencies-only --verbose
+      - run: yarn --cwd ./src
+  restore_dependencies:
+    steps:
+      - restore_cache:
+          keys:
+            - app-v2-dependencies-{{ checksum "stack.yaml" }}
+            - app-v2-dependencies
+      - restore_cache:
+          keys:
+            - src-v2-dependencies-{{ checksum "./src/yarn.lock" }}
+            - src-v2-dependencies
+  save_dependencies:
+    steps:
+      - save_cache:
+          key: app-v2-dependencies-{{ checksum "stack.yaml" }}
+          paths:
+            - ~/.stack/
+            - ./.stack-work/
+      - save_cache:
+          key: src-v2-dependencies-{{ checksum "./src/yarn.lock" }}
+          paths:
+            - ./src/node_modules/
+
+jobs:
+  start:
+    executor: base
+    steps:
+      - run: echo 'starting workflow'
+  done:
+    executor: base
+    steps:
+      - run: echo 'finished workflow'
+  dependencies:
+    executor: default
+    steps:
+      - checkout
+      - install_dependencies
+      - save_dependencies
+  lint:
+    executor: default
+    steps:
+      - checkout
+      - install_dependencies
+      - lint
+  unit_test:
+    executor: default
+    steps:
+      - checkout
+      - install_dependencies
+      - unit_test
+  build:
+    executor: default
+    steps:
+      - checkout
+      - install_dependencies
+      - build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - _site/
+  deploy:
+    executor: default
+    parameters:
+      stage:
+        type: enum
+        enum: ['development', 'staging', 'production']
+    steps:
+      - checkout
+      - install_dependencies
+      - attach_workspace:
+          at: .
+      - deploy:
+          stage: << parameters.stage >>
+  publish:
+    executor: base
+    parameters:
+      stage:
+        type: enum
+        enum: ['development', 'staging', 'production']
+    steps:
+      - checkout
+      - publish:
+          stage: << parameters.stage >>
+
+workflows:
+  commit:
+    jobs:
+      - start:
+          filters:
+            branches:
+              ignore:
+                - *default_branch
+      - dependencies:
+          requires:
+            - start
+      - lint:
+          requires:
+            - start
+      - unit_test:
+          requires:
+            - start
+      - build:
+          requires:
+            - start
+      - done:
+          requires:
+            - dependencies
+            - lint
+            - unit_test
+            - build
+  deploy_staging:
+    jobs:
+      - start:
+          filters:
+            branches:
+              only:
+                - *default_branch
+      - dependencies:
+          requires:
+            - start
+      - lint:
+          requires:
+            - start
+      - unit_test:
+          requires:
+            - start
+      - build:
+          requires:
+            - start
+      - deploy:
+          stage: staging
+          context: aws-credentials
+          requires:
+            - dependencies
+            - lint
+            - unit_test
+            - build
+  deploy_production:
+    jobs:
+      - hold:
+          type: approval
+          filters:
+            branches:
+              only:
+                - *default_branch
+      - dependencies:
+          requires:
+            - hold
+      - lint:
+          requires:
+            - hold
+      - unit_test:
+          requires:
+            - hold
+      - build:
+          requires:
+            - hold
+      - deploy:
+          stage: production
+          context: aws-credentials
+          requires:
+            - dependencies
+            - lint
+            - unit_test
+            - build
+      - publish:
+          stage: production
+          requires:
+            - deploy

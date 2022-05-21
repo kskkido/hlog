@@ -11,4 +11,6 @@ import qualified Models.Tags.Main as Tags
 import qualified Models.TagContext.Main as TagContext
 
 fromTags :: Hakyll.Tags -> Hakyll.Context String
-fromTags tags = Hakyll.listField "tags" (TagContext.fromItem tags) (return $ Tags.toItems tags)
+fromTags tags =
+  Hakyll.listField "tags" (TagContext.fromItem tags) (return $ Tags.toItems tags) <>
+  Hakyll.field     "size" (const $ return $ show $ length $ Tags.toItems tags)

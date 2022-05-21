@@ -1,0 +1,24 @@
+*[data-type~='menu-trigger'] {
+  & .clip {
+    position: relative;
+  }
+  & *[data-value~='open'] {
+    &.active {
+      transform: translateY(0%);
+    }
+    &.inactive {
+      transform: translateY(-100%);
+    }
+  }
+
+  & *[data-value~='closed'] {
+    position: absolute !important;
+    left: 0;
+    &.active {
+      transform: translateY(0%);
+    }
+    &.inactive {
+      transform: translateY(100%);
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<ul
+  id="table-of-contents"
+  class="table-of-contents text-sm"
+  data-type="article-table-of-contents"
+>
+  $for(headers)$
+  <li>
+    <div class="clip mb-2">
+      <div class="flex flex-row items-center" data-type="content">
+        <a
+          class="text-animated-hover"
+          data-target="$identifier$"
+          data-type="anchor"
+        >
+          <span class="text"> $label$ </span>
+        </a>
+      </div>
+    </div>
+    <ul class="pl-3">
+      $for(headers)$
+      <li class="mb-2">
+        <div class="clip">
+          <div class="flex flex-row items-center" data-type="content">
+            <a
+              class="text-animated-hover"
+              data-target="$identifier$"
+              data-type="anchor"
+            >
+              <span class="text"> $label$ </span>
+            </a>
+          </div>
+        </div>
+      </li>
+      $endfor$
+    </ul>
+  </li>
+  $endfor$
+</ul>

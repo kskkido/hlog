@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <script src="/scripts/home.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/8.0.0-alpha.2/rxjs.umd.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="boundary">
+    $partial("templates/header.html")$ $partial("templates/cursor.html")$ $partial("templates/menu.html")$
+    <main id="container" class="flex flex-col px-8 sm:px-14 mb-16 sm:mb-32" data-type="main">
+      <section
+        id="title"
+        class="flex justify-between items-center flex-col sm:flex-row"
+        data-type="title transition-group"
+      >
+        <div class="clip">
+          <h1 class="text-5xl block" data-type="content">Featured</h1>
+        </div>
+        <div class="clip">
+          <a
+            class="text-animated-hover"
+            href="/posts.html"
+            data-type="link content"
+            data-active_animation="slideInBottom"
+            data-inactive_animation="slideOutTop"
+          >
+            <span class="text text-md">View all</span>
+          </a>
+        </div>
+      </section>
+      <section class="flex flex-col">
+        <div>$partial("templates/posts-latest.html")$</div>
+      </section>
+    </main>
+    $partial("templates/footer.html")$
+  </body>
+</html>

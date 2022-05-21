@@ -8,11 +8,12 @@ import qualified Configs.App.Types as Types
 fromIO :: IO Types.Config
 fromIO = return $ Types.Config
   { Types.commandPostCss        = "node_modules/.bin/postcss" -- yikes
-  , Types.filePathSource        = "src"
+  , Types.filePathSource        = "src/public"
   , Types.filePathAssets        = "assets/"
   , Types.filePathFonts         = "assets/fonts/"
   , Types.filePathImages        = "assets/images/"
   , Types.filePathScripts       = "scripts/"
+  , Types.filePathClientScripts = "client/public/scripts/"
   , Types.filePathModules       = "modules/"
   , Types.filePathStyles        = "styles/"
   , Types.filePathStylesRoot    = "styles/index.css"
@@ -22,7 +23,7 @@ fromIO = return $ Types.Config
   , Types.filePathViewsPosts    = "views/posts.html"
   , Types.filePathViewsTag      = "views/tag.html"
   , Types.filePathViewsTags     = "views/tags.html"
-  , Types.filePathComponents    = "components/"
+  , Types.filePathComponents    = "templates/"
   , Types.filePathEnPosts       = "posts/en/"
   , Types.fileExtensionMetadata = ".metadata"
   }

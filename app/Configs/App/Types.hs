@@ -4,6 +4,7 @@ module Configs.App.Types
   , _filePathSource
   , _filePathAssets
   , _filePathScripts
+  , _filePathClientScripts
   , _filePathModules
   , _filePathFonts
   , _filePathImages
@@ -27,6 +28,7 @@ data Config = Config
   , filePathSource        :: String
   , filePathAssets        :: String
   , filePathScripts       :: String
+  , filePathClientScripts :: String
   , filePathModules       :: String
   , filePathFonts         :: String
   , filePathImages        :: String
@@ -54,6 +56,9 @@ _filePathAssets = Control.Lens.lens filePathAssets $ \s x -> s { filePathAssets 
 
 _filePathScripts :: Control.Lens.Lens' Config String
 _filePathScripts = Control.Lens.lens filePathScripts $ \s x -> s { filePathScripts = x }
+
+_filePathClientScripts :: Control.Lens.Lens' Config String
+_filePathClientScripts = Control.Lens.lens filePathClientScripts $ \s x -> s { filePathClientScripts = x }
 
 _filePathModules :: Control.Lens.Lens' Config String
 _filePathModules = Control.Lens.lens filePathModules $ \s x -> s { filePathModules = x }

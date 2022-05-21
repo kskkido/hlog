@@ -1,0 +1,6 @@
+.text-secondary {
+  @apply text-gray-400;
+  @apply dark:text-gray-500;
+
+  transition: color 0.3s ease;
+}

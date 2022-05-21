@@ -1,0 +1,6 @@
+.text-primary {
+  @apply text-slate-800;
+  @apply dark:text-slate-50;
+
+  transition: color 0.3s ease;
+}

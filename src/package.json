@@ -1,0 +1,48 @@
+{
+  "name": "mt-intercom-canvaskit",
+  "version": "1.0.0",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "14"
+  },
+  "scripts": {
+    "build": "yarn clean && concurrently \"npm:build:ts\" \"npm:build:css\"",
+    "build:ts": "yarn esbuild src/scripts/home.ts src/scripts/post.ts src/scripts/posts.ts src/scripts/tag.ts src/scripts/tags.ts --bundle --outdir=public/scripts/ --minify",
+    "build:css": "yarn postcss ./src/styles/index.css -d ./public/styles",
+    "clean": "concurrently \"npm:clean:ts\" \"npm:clean:css\"",
+    "clean:ts": "rm -rf ./public/scripts",
+    "clean:css": "rm -rf ./public/styles",
+    "watch": "yarn clean && concurrently \"npm:watch:ts\" \"npm:watch:css\"",
+    "watch:ts": "yarn esbuild src/scripts/home.ts src/scripts/post.ts src/scripts/posts.ts src/scripts/tag.ts src/scripts/tags.ts --bundle --watch --outdir=public/scripts/ --minify",
+    "watch:css": "yarn postcss ./src/styles/index.css --watch --dir ./public/styles",
+    "typecheck": "tsc --noEmit",
+    "show": "tsc -v"
+  },
+  "devDependencies": {
+    "@types/qs": "^6.9.6",
+    "autoprefixer": "10.4.7",
+    "dotenv": "^10.0.0",
+    "esbuild": "^0.12.28",
+    "postcss": "8.4.14",
+    "postcss-cli": "9.1.0",
+    "postcss-custom-media": "8.0.0",
+    "postcss-import": "14.1.0",
+    "postcss-nested": "5.0.6",
+    "postcss-nesting": "10.1.7",
+    "prettier": "^2.3.1",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "concurrently": "7.2.0",
+    "fp-ts": "^2.11.1",
+    "io-ts": "^2.2.16",
+    "io-ts-types": "^0.5.16",
+    "monocle-ts": "^2.3.12",
+    "newtype-ts": "^0.3.5",
+    "qs": "^6.10.1",
+    "rxjs": "^7.5.5",
+    "tailwindcss": "3.0.24"
+  }
+}

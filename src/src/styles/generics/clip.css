@@ -1,0 +1,7 @@
+.clip {
+  overflow: hidden;
+  & > * {
+    transform: translateY(100%);
+    line-height: normal !important;
+  }
+}

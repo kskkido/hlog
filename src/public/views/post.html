@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <title>Post - $title$</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/56e0eb8f60.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/index.css" />
+    <script src="/scripts/post.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/8.0.0-alpha.2/rxjs.umd.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="boundary">
+    $partial("templates/header.html")$ $partial("templates/cursor.html")$ $partial("templates/menu.html")$
+    <main id="container" class="flex flex-col px-8 sm:px-14 mb-16 sm:mb-32" data-type="main">
+      <section class="lg:flex lg:flex-row-reversed">
+        <div class="hidden lg:block flex-1 max-w-xl min-w-max sticky top-10 self-start mr-8 pt-1">
+          <div class="mb-8" data-type="article-metadata">
+            <div class="clip mb-4">
+              <span class="text-xl block" data-type="content">$author$</span>
+            </div>
+            <div class="clip mb-1">
+              <span class="text-sm block" data-type="content">$date$</span>
+            </div>
+            <div class="clip mb-1">
+              <span class="text-sm block" data-type="content">$word-count$ words</span>
+            </div>
+            $for(tags)$
+            <div class="clip inline-block">
+              <a class="mr-1 text-animated-hover text-sm" href="$url$" data-type="link content">
+                <span class="text"> $name$ </span>
+              </a>
+            </div>
+            $endfor$
+          </div>
+          <div class="target" data-type="article-table-of-contents">$partial("templates/table-of-contents.html")$</div>
+        </div>
+        <div class="lg:hidden" data-type="article-table-of-contents"></div>
+        <div class="max-w-2xl mx-auto">
+          <div class="max-w-xl min-w-max">
+            <div
+              class="flex items-center text-xs sm:text-sm mb-6 text-secondary fill-secondary"
+              data-type="breadcrumbs"
+            >
+              <div class="clip">
+                <a class="text-animated-hover" href="/" data-type="content link">
+                  <span class="text"> Home </span>
+                </a>
+              </div>
+              <div class="clip">
+                <div class="mx-3" data-type="content">
+                  <span> / </span>
+                </div>
+              </div>
+              <div class="clip">
+                <a class="text-animated-hover" href="/tags.html" data-type="content link">
+                  <span class="text"> Tags </span>
+                </a>
+              </div>
+              <div class="clip">
+                <div class="mx-3" data-type="content">
+                  <span> / </span>
+                </div>
+              </div>
+              <div class="clip">
+                <a class="text-animated-hover" href="/posts.html" data-type="content link">
+                  <span class="text"> Posts </span>
+                </a>
+              </div>
+              <div class="clip">
+                <div class="mx-3" data-type="content">
+                  <span> / </span>
+                </div>
+              </div>
+              <div class="clip">
+                <a class="text-animated-hover" href="$url$" data-type="content link">
+                  <span class="text"> $title$ </span>
+                </a>
+              </div>
+            </div>
+            <div id="title" class="clip" data-type="title">
+              <div class="quick-link" data-type="content">
+                <h1 class="text-5xl block">$title$</h1>
+                <i class="link fa-solid fa-link" data-type="quick_link"> </i>
+              </div>
+            </div>
+            <div class="lg:hidden mt-4" data-type="article-metadata">
+              <div class="target" style="--index: 2">
+                <div class="clip mb-4">
+                  <span class="text-xl block" data-type="content">$author$</span>
+                </div>
+                <div class="clip mb-1">
+                  <span class="text-sm block" data-type="content">$date$</span>
+                </div>
+                <div class="clip mb-1">
+                  <span class="text-sm block" data-type="content">$word-count$ words</span>
+                </div>
+                $for(tags)$
+                <div class="clip inline-block">
+                  <a class="mr-1 text-animated-hover text-sm" href="$url$" data-type="link content">
+                    <span class="text"> $name$ </span>
+                  </a>
+                </div>
+                $endfor$
+              </div>
+            </div>
+          </div>
+          <div class="clip" data-type="article-body">
+            <div class="markdown" data-type="content">$body$</div>
+          </div>
+          <div class="grid grid-cols-8" data-type="article-footer">
+            $if(prev)$ $for(prev)$
+            <div class="col-span-4 col-start-1 text-left">
+              <div class="clip mb-4">
+                <span class="block text-sm" data-type="content"> Previous </span>
+              </div>
+              <div class="clip">
+                <a class="mr-1 text-animated-hover text" href="$url$" data-type="link content">
+                  <span class="text"> $title$ </span>
+                </a>
+              </div>
+            </div>
+            $endfor$ $endif$ $if(next)$ $for(next)$
+            <div class="col-span-4 col-end-9 text-right">
+              <div class="clip mb-4">
+                <span class="block text-sm" data-type="content"> Next </span>
+              </div>
+              <div class="clip">
+                <a class="mr-1 text-animated-hover text" href="$url$" data-type="link content">
+                  <span class="text"> $title$ </span>
+                </a>
+              </div>
+            </div>
+            $endfor$ $endif$
+          </div>
+        </div>
+      </section>
+    </main>
+    $partial("templates/footer.html")$
+  </body>
+</html>

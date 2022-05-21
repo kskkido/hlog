@@ -3,6 +3,7 @@ module Configs.App.To
   , toHakyllConfig
   , toAssetsPattern
   , toScriptsPattern
+  , toClientScriptsPattern
   , toModulesPattern
   , toFontsPattern
   , toStylesPattern
@@ -41,6 +42,9 @@ toAssetsPattern config = config ^. Types._filePathAssets . to (++ "**/*") . to H
 
 toScriptsPattern :: Types.Config -> Hakyll.Pattern
 toScriptsPattern config = config ^. Types._filePathScripts . to (++ "*") . to Hakyll.fromGlob
+
+toClientScriptsPattern :: Types.Config -> Hakyll.Pattern
+toClientScriptsPattern config = config ^. Types._filePathClientScripts . to (++ "*") . to Hakyll.fromGlob
 
 toModulesPattern :: Types.Config -> Hakyll.Pattern
 toModulesPattern config = config ^. Types._filePathModules . to (++ "**/*") . to Hakyll.fromGlob

@@ -1,6 +1,7 @@
 module Lib.Field.Main
   ( previewField
   , readTimeField
+  , wordCountField
   ) where
 
 import qualified Hakyll
@@ -18,3 +19,8 @@ readTimeField :: String -> Int -> Hakyll.Context String
 readTimeField key unit = Hakyll.field key $ \item -> do
   body <- return $ Hakyll.itemBody item
   return $ show $ div (length $ Data.Text.words $ Data.Text.pack body) unit
+
+wordCountField :: String -> Hakyll.Context String
+wordCountField key = Hakyll.field key $ \item -> do
+  body <- return $ Hakyll.itemBody item
+  return $ show $ length $ Data.Text.words $ Data.Text.pack body

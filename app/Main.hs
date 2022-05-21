@@ -25,6 +25,10 @@ main = do
         Hakyll.route $ Hakyll.setExtension "js"
         Hakyll.compile $ Hakyll.copyFileCompiler
     do
+      Hakyll.match (Config.toClientScriptsPattern config) $ do
+        Hakyll.route $ Hakyll.setExtension "js"
+        Hakyll.compile $ Hakyll.copyFileCompiler
+    do
       Hakyll.match (Config.toModulesPattern config) $ do
         Hakyll.route $ Hakyll.setExtension "js"
         Hakyll.compile $ Hakyll.copyFileCompiler
@@ -33,7 +37,7 @@ main = do
       Hakyll.rulesExtraDependencies [styles] $ do
         Hakyll.match (Config.toStylesRootPattern config) $ do
           Hakyll.route $ Hakyll.setExtension "css"
-          Hakyll.compile $ Css.toCompiled config
+          Hakyll.compile Hakyll.compressCssCompiler
     tags <- Hakyll.buildTags (Config.toEnPostsPattern config) (Hakyll.fromCapture "tags/*.html")
     Hakyll.tagsRules tags $ \tag pattern -> do
       Hakyll.route Hakyll.idRoute
